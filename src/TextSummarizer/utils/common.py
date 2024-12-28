@@ -2,12 +2,12 @@ import os
 from box.exceptions import BoxValueError
 import yaml
 from TextSummarizer.logging import logger
-from ensure import ensure_annotations
+from ensure import ensure_annotations # used to put annotations check on the function. Useful for error handling
 from box import ConfigBox
 from pathlib import Path
 from typing import Any
 
-@ensure_annotations
+@ensure_annotations #use this decorator to use the annotated function
 def read_yaml(path_to_yaml:Path) -> ConfigBox:
     """reads yaml file and returns
     
@@ -33,7 +33,7 @@ def read_yaml(path_to_yaml:Path) -> ConfigBox:
         raise e
     
     
-@ensure_annotations
+@ensure_annotations #use this decorator to use the annotated function
 def create_directories(path_to_directories: list, verbose=True):
     """create list of directories
 
@@ -47,7 +47,7 @@ def create_directories(path_to_directories: list, verbose=True):
             logger.info(f"created directory at: {path}")
             
 
-@ensure_annotations
+@ensure_annotations #use this decorator to use the annotated function
 def get_size(path: Path) -> str:
     """get size in KB
 
