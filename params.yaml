@@ -1,1 +1,37 @@
-key: value
+TrainingArguments:
+    # Number of training epochs (complete passes through the dataset)
+    num_train_epochs: 1
+
+    # Number of warmup steps for learning rate scheduling
+    warmup_steps: 500
+
+    # Batch size for training on each device (GPU/CPU)
+    per_device_train_batch_size: 1
+
+    # Batch size for evaluation on each device (GPU/CPU)
+    per_device_eval_batch_size: 1
+
+    # Weight decay to apply to the model's parameters to reduce overfitting
+    weight_decay: 0.01
+
+    # Number of steps between logging updates (progress reports during training)
+    logging_steps: 10
+
+    # Strategy for evaluation: 'steps' means evaluate every `eval_steps` steps
+    eval_strategy: steps
+
+    # Number of steps between evaluation runs
+    eval_steps: 500
+
+    # Save model checkpoints every `save_steps` steps (here set to a very high value to effectively disable)
+    save_steps: 100000000
+
+    # Number of steps to accumulate gradients before performing a backward pass
+    gradient_accumulation_steps: 1
+
+    # Disable wandb integration
+    report_to: none
+
+    fp16: True  # Enable mixed precision training
+
+    gradient_checkpointing: False  # Disable gradient checkpointing
